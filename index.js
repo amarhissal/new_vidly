@@ -1,6 +1,12 @@
 const express = require('express');
 const app = express();
 
+
+app.use(cors({
+    'Access-Control-Allow-Origin': '*'
+}));
+
+
 require('./startup/logging')();
 require('./startup/routes')(app);
 require('./startup/db')();
