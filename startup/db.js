@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
-const config = require('config')
+const env = require('dotenv').config();
 
 module.exports =function(){
     
-mongoose.connect(config.get('db'))
+mongoose.connect(process.env.db)
 .then(()=>{
-    console.log(`Connected to ${config.get('db')} ...`);
+    console.log("Connected to DB...");
 })
 .catch((e)=>{
     console.log(e);
